@@ -9,7 +9,6 @@ apache-airflow-providers-imap==3.0.0
 apache-airflow-providers-sqlite==3.2.0
 apispec==3.3.2
 argcomplete==2.0.0
-asgiref @ file:///opt/conda/conda-bld/asgiref_1661287532135/work
 attrs==22.1.0
 Babel==2.10.3
 blinker==1.5
