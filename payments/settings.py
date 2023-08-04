@@ -81,23 +81,34 @@ WSGI_APPLICATION = "payments.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-import dj_database_url
+# import dj_database_url
 
-if not DEBUG:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    } 
-else :
-    DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ.get("DATABASE_NAME"),
-        "USER": os.environ.get("DATABASE_USER"),
-        "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
-        "HOST": os.environ.get("DATABASE_HOST"),
-        "PORT": os.environ.get("DATABASE_PORT"),
-    }
-    }
+# if not DEBUG:
+#     DATABASES = {
+#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#     } 
+# else :
+#     DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": os.environ.get("DATABASE_NAME"),
+#         "USER": os.environ.get("DATABASE_USER"),
+#         "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+#         "HOST": os.environ.get("DATABASE_HOST"),
+#         "PORT": os.environ.get("DATABASE_PORT"),
+#     }
+#     }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": os.environ.get("DATABASE_NAME"),
+#         "USER": os.environ.get("DATABASE_USER"),
+#         "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+#         "HOST": os.environ.get("DATABASE_HOST"),
+#         "PORT": os.environ.get("DATABASE_PORT")
+#     }
+# }
 
 
 # Password validation
@@ -141,9 +152,13 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#Redis config
-CELERY_BROKER_URL = "redis://default:MHPUO3KYMcEjZt5E6VJT@containers-us-west-153.railway.app:6929"
+# #Redis config
+# CELERY_BROKER_URL = "redis://default:MHPUO3KYMcEjZt5E6VJT@containers-us-west-153.railway.app:6929"
 
-CELERY_ACCEPT_CONTENT = ["json"]
+# CELERY_ACCEPT_CONTENT = ["json"]
 
-CELERY_TASK_SERIALIZER = "json"
+# CELERY_TASK_SERIALIZER = "json"
+
+# Celery settings
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"

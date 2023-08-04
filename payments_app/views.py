@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from . tasks import sleeptime
+# from . tasks import sleeptime
+
+from . tasks import make_post_request
 
 # Create your views here.
 
@@ -11,7 +13,13 @@ def index(request):
 
 def celery_view(request):
 
-    #invoke celery to run the task
-    sleeptime.delay(15)
+    sms_data = make_post_request().json()
 
-    return HttpResponse("Hey, it's almost nap time")
+    celery_dict = {"sms": sms_data}
+
+    return render(request, "payments_app/sms.html", context = celery_dict)
+
+    # #invoke celery to run the task
+    # sleeptime.delay(15)
+
+    # return HttpResponse("Hey, it's almost nap time")
