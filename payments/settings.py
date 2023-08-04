@@ -81,23 +81,23 @@ WSGI_APPLICATION = "payments.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# import dj_database_url
+import dj_database_url
 
-# if not DEBUG:
-#     DATABASES = {
-#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-#     } 
-# else :
-#     DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": os.environ.get("DATABASE_NAME"),
-#         "USER": os.environ.get("DATABASE_USER"),
-#         "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
-#         "HOST": os.environ.get("DATABASE_HOST"),
-#         "PORT": os.environ.get("DATABASE_PORT"),
-#     }
-#     }
+if not DEBUG:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    } 
+else :
+    DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("DATABASE_NAME"),
+        "USER": os.environ.get("DATABASE_USER"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+        "HOST": os.environ.get("DATABASE_HOST"),
+        "PORT": os.environ.get("DATABASE_PORT"),
+    }
+    }
 
 # DATABASES = {
 #     "default": {
@@ -109,6 +109,8 @@ WSGI_APPLICATION = "payments.wsgi.application"
 #         "PORT": os.environ.get("DATABASE_PORT")
 #     }
 # }
+
+
 
 
 # Password validation
@@ -152,13 +154,14 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# #Redis config
-# CELERY_BROKER_URL = "redis://default:MHPUO3KYMcEjZt5E6VJT@containers-us-west-153.railway.app:6929"
+#Redis config for prod - Redis instance on Railway
 
-# CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_BROKER_URL = "redis://default:LQ2ds5OgNf4iQhgTQXUf@containers-us-west-63.railway.app:7089"
 
-# CELERY_TASK_SERIALIZER = "json"
+CELERY_ACCEPT_CONTENT = ["json"]
 
-# Celery settings
+CELERY_TASK_SERIALIZER = "json"
+
+# Celery settings localhost
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
