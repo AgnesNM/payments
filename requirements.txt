@@ -10,7 +10,6 @@ anyio @ file:///tmp/build/80754af9/anyio_1644481695334/work/dist
 appdirs==1.4.4
 argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
 argon2-cffi-bindings @ file:///tmp/build/80754af9/argon2-cffi-bindings_1644553347904/work
-arrow @ file:///croot/arrow_1676588132104/work
 asgiref==3.7.2
 astroid @ file:///croot/astroid_1676904296642/work
 astropy @ file:///opt/conda/conda-bld/astropy_1657786094003/work
