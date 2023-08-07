@@ -10,8 +10,10 @@ click-plugins==1.1.1
 click-repl==0.3.0
 dj-database-url==2.0.0
 Django==3.2
+gunicorn==21.2.0
 idna==3.4
 kombu==5.2.4
+packaging==23.1
 prompt-toolkit==3.0.39
 psycopg2-binary==2.9.6
 python-dateutil==2.8.2
