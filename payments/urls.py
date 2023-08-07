@@ -20,5 +20,5 @@ from payments_app import views
 urlpatterns = [
     path("", views.index, name="index"),    
     path("admin/", admin.site.urls), 
-    path("payments_app", include("payments_app.urls"))   
+    path("payments_app/", include("payments_app.urls"))   
 ]

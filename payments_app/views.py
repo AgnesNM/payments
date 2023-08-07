@@ -19,6 +19,21 @@ def celery_view(request):
 
     return render(request, "payments_app/sms.html", context = celery_dict)
 
+def validation(request): 
+
+    validation_dict = {"validation":"Hey this is the validation page"}
+
+    return render(request, "payments_app/validation.html", context = validation_dict)
+
+def confirmation(request): 
+
+    confirmation_dict = {"confirmation":"Hey this is the confirmation page"}
+
+    return render(request, "payments_app/confirmation.html", context = confirmation_dict)
+
+    
+
+
     # #invoke celery to run the task
     # sleeptime.delay(15)
 
